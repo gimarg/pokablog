@@ -1,0 +1,289 @@
+/* Custom CSS overrides */
+
+#header {
+  background-color: #0077bb;
+}
+
+#main-navigation {
+  background-color: #0077bb;
+}
+
+#main-navigation nav ul.menu > li a {
+  color: white;
+}
+
+#main-navigation nav ul.menu > li > ul > li > a {
+  color: #0077bb;
+  font-size: 12px;
+  padding: 15px 5px;
+  text-transform: uppercase;
+  font-weight: 700;
+  width: 100%;
+}
+
+#header-top ul.menu ul, #header ul.menu ul, 
+#main-navigation ul.menu ul, #top-content ul.menu ul, 
+#subfooter ul.menu ul, #bottom-content ul.menu ul {
+  top: 100%;
+}
+
+.sf-menu.sf-horizontal.sf-shadow ul {
+  background: #f0f0f0;
+}
+
+.block-superfish ul.sf-menu > li > ul:before, 
+.block-superfish ul.sf-menu > li > ul:after {
+  display: none;
+}
+
+
+#main-navigation nav a:hover, 
+#main-navigation nav a:focus, 
+#main-navigation nav ul.menu li a.active,
+#main-navigation nav ul.menu li.active-trail a, 
+#main-navigation nav ul.menu li a:hover {
+  color: #4c5c66;
+  background: #f0f0f0;
+}
+
+#main-content {
+  padding-top: 10px;
+}
+
+#banner-inside {
+  padding-top: 40px;
+  margin-bottom: 50px;
+}
+
+/* a:hover, a:focus, ul.menu li a.active, ul.menu li a:hover, 
+ul.links li a.active, ul.links li a:hover, #forum thead a:hover, 
+#block-node-recent .node-title a:hover {
+  opacity: 0.7; 
+} */
+
+#site-slogan {
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+  color: #bbe6ff;
+  letter-spacing: 0.5px;
+  font-size: 18px;
+}
+
+#site-name a{
+  color: white;
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-weight: 500;
+  letter-spacing: 5px;
+}
+
+#search-block-form input.form-search {
+  width: 90%;
+}
+
+#search-block-form .form-item, #search-block-form .form-actions {
+  display: inline-block;
+}
+
+#logo {
+  width: 250px;
+  display: inline-block;
+}
+
+#logo img {
+  width: 100%;
+}
+
+#search-block-form input.form-search {
+  padding: 0;
+  min-height: 30px;
+  border-width: 1px;
+  border-color: #999999;
+  width: 100%;
+}
+
+#search-block-form input.form-submit {
+  padding: 4px 13px 3px 13px;
+  font-size: 12px;
+  letter-spacing: 2px;
+}
+
+#block-rightsreserved {
+  display: inline-block;
+  letter-spacing: 1px;
+}
+
+#block-development {
+  float: right;
+  letter-spacing: 2px;
+}
+
+#block-development a {
+  font-weight: bold;
+}
+
+#block-development a:hover {
+  text-decoration: none;
+  color: #b6c1c9;
+}
+
+.description {
+  font-size: 10px;
+  line-height: 12px;
+}
+#edit-name--description {
+  display: none;
+}
+
+.page-node-type-page input.form-text, .page-node-type-page input.form-email, .page-node-type-page textarea.form-textarea, .page-node-type-page select {
+  min-height: 33px;
+  padding: 0;
+}
+
+.page-node-type-page .node header {
+  padding: 0;
+}
+
+#block-bootstrap-business-page-title {
+  padding-bottom: 15px;
+}
+
+.field--name-user-picture {
+  float: left;
+  margin-right: 20px;
+}
+
+.field--name-field-image {
+  padding-bottom: 15px;
+} 
+
+.node__content {
+  margin-top: 20px;
+}
+
+#edit-comment-body-0-format, #edit-body-0-format {
+  display: none;
+}
+
+.action-link {
+  font-size: 18px;
+}
+
+a.action-link:hover {
+  text-decoration: none;
+  color: #6b8494;
+}
+
+#views-form-comment-page-unapproved #edit-actions--2 {
+  display: none;
+}
+
+#views-form-content-page-1 #edit-actions--2 {
+  display: none;
+}
+
+.tabs a:focus, .tabs a:hover {
+  background-color: white !important;
+}
+
+ul.primary li a, ul.primary li.active a, ul.tabs li a {
+  border-color: #eaeaea;
+  border-width: 1px;
+  border-style: solid;
+}
+
+.view-comment .view-filters, .view-comment .view-content {
+  -webkit-box-shadow: rgba(0, 0, 0, 0.6) 4px 4px 10px;
+  -moz-box-shadow: rgba(0, 0, 0, 0.6) 4px 4px 10px;
+  box-shadow: rgba(0, 0, 0, 0.6) 4px 4px 10px;
+  padding: 5px 10px;
+}
+
+.view-comment .view-content {
+  margin-top: 20px;
+}
+
+.view-comment select {
+  margin: 10px 0;
+}
+
+.tabs {
+  font-size: 16px;
+}
+
+.tabs.primary {
+  font-weight: bold;
+}
+
+#views-form-comment-page-unapproved #edit-action {
+  margin-bottom: 40px;
+}
+
+#block-views-block-anakoinoseis-se-banner-block-1 .views-field-body .field-content {
+  margin: 0 10px;
+}
+
+#block-views-block-anakoinoseis-se-banner-block-1 .views-field-body:after {
+  content: '|';
+}
+
+#block-views-block-anakoinoseis-se-banner-block-1 .views-field-body:last-child:after {
+  display: none;
+}
+
+#block-bootstrap-business-content .label {
+    color: #444;
+}
+
+.path-members .item-list ul li {
+  list-style-type: none;
+  margin-left: 0;
+}
+
+.path-members .item-list ul li span {
+  padding-right: 10px;
+}
+
+.path-frontpage #content-wrapper h1.page-title {
+  padding: 20px 30px 0;
+}
+
+.view-filters {
+  display: none;
+}
+
+#edit-preview {
+  display: none;
+}
+
+.node--type-arthro-meloys .article-author-picture, .node--type-arthro-meloys .article-author {
+  display: none;
+}
+
+.node--type-arthro-meloys .node__content {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+.node--type-arthro-meloys .field--name-field-onomateponymo {
+  padding-bottom: 40px;
+}
+
+.path-apopseis .view-header {
+  margin-bottom: 40px;
+}
+
+.path-apopseis .view-header a {
+  display: inline-block;
+  text-align: center;
+  background-color: #4c5c66;
+  color: white;
+  font-size: 16px;
+  letter-spacing: 1px;
+  padding: 7px;
+  margin-left: 10px;
+}
+
+.path-apopseis .view-header a:hover {
+  text-decoration: none;
+  color: #4c5c66;
+  background-color: white;
+}

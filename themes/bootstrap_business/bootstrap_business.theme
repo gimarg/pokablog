@@ -1,0 +1,110 @@
+<?php 
+
+use Drupal\Core\Theme\ThemeSettings;
+use Drupal\Core\Template\Attribute;
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\Component\Utility\Html;
+
+
+/**
+ * Implements hook_preprocess_username to reverse core's option to truncate usernames
+ */
+
+function bootstrap_business_preprocess_username(&$variables) {
+  $account = $variables['account'] ?: new AnonymousUserSession();
+  $variables['name'] = $account->getDisplayName();
+
+  // remove "not verified" status in anonymous comments
+  $variables['extra'] = '';
+}
+
+/**
+ * Implements hook_preprocess_html to preprocess variables for html templates
+ */
+function bootstrap_business_preprocess_html(&$variables) {
+  $bootstrap_remote_type = theme_get_setting('bootstrap_remote_type');
+  if ($bootstrap_remote_type == 'local') {
+    $variables['#attached']['library'][] = 'bootstrap_business/bootstrap';
+  } else {
+    $variables['#attached']['library'][] = 'bootstrap_business/bootstrap-cdn';
+  }
+
+  /**
+   * Adds node-id class to body tag
+   */
+  $variables['path_info']['args'] = FALSE;
+  $path = \Drupal::service('path.current')->getPath();
+  $path_args = explode('/', $path);
+  if (count($path_args) >= 3) {
+    $variables['path_info']['args'] = Html::cleanCssIdentifier(ltrim($path, '/'));
+  }
+}
+
+/**
+ * Preprocess variables for page template.
+ */
+function bootstrap_business_preprocess_page(&$variables) {
+
+  /**
+   * insert variables into page template.
+   */
+  if($variables['page']['sidebar_first'] && $variables['page']['sidebar_second']) { 
+    $variables['sidebar_grid_class'] = 'col-md-3';
+    $variables['main_grid_class'] = 'col-md-6';
+  } elseif ($variables['page']['sidebar_first'] || $variables['page']['sidebar_second']) {
+    $variables['sidebar_grid_class'] = 'col-md-4';
+    $variables['main_grid_class'] = 'col-md-8';
+  } else {
+    $variables['main_grid_class'] = 'col-md-12';
+  }
+
+  if($variables['page']['header_top_left'] && $variables['page']['header_top_right']) { 
+    $variables['header_top_left_grid_class'] = 'col-md-8';
+    $variables['header_top_right_grid_class'] = 'col-md-4';
+  } elseif ($variables['page']['header_top_right'] || $variables['page']['header_top_left']) {
+    $variables['header_top_left_grid_class'] = 'col-md-12';
+    $variables['header_top_right_grid_class'] = 'col-md-12';
+  }
+
+  //Load to-top library
+  $to_top = theme_get_setting('scrolltop_display');
+  if ($to_top) {
+    $variables['#attached']['library'][] = 'bootstrap_business/to-top';
+  }
+
+  /**
+   * - Adds ability to print login_form to page.html.twig
+   **/
+  $entity = \Drupal::entityManager()
+  ->getStorage('user')
+  ->create(array());
+
+  $formObject = \Drupal::entityManager()
+  ->getFormObject('user', 'register')
+  ->setEntity($entity);
+
+  $form = \Drupal::formBuilder()->getForm($formObject);
+  $variables['register_form'] = $form;
+}
+
+/**
+ * Implements hook_theme_suggestions_HOOK_alter() for form templates.
+ * @param array $suggestions
+ * @param array $variables
+ **/
+function bootstrap_business_theme_suggestions_block_alter(array &$suggestions, array $variables) {
+  // Block suggestions for custom block bundles.
+  if (isset($variables['elements']['content']['#block_content'])) {
+    array_splice($suggestions, 1, 0, 'block__bundle__' . $variables['elements']['content']	['#block_content']->bundle());
+  }
+}
+
+
+/**
+ * Implements hook_form_alter
+ **/
+function bootstrap_business_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+
+    // Add a custom submit value string
+    $form['actions']['submit']['#value']=t('Send');
+}
